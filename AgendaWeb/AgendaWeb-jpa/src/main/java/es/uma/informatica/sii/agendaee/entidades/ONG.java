@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 
 @Entity
+@NamedQuery(name="ONG.Todos", query="SELECT o from ONG o")
 public class ONG implements Serializable {
 
 	private static final long serialVersionUID = 1L;

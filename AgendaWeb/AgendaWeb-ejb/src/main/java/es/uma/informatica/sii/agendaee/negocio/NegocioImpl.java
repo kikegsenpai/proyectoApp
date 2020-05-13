@@ -102,7 +102,7 @@ public class NegocioImpl implements Negocio {
     
     @Override
     public List<ONG> getListaOng() throws AgendaException {
-		return em.createNamedQuery("ONG.todos", ONG.class).getResultList();
+		return em.createNamedQuery("ONG.Todos", ONG.class).getResultList();
     }
 
     
