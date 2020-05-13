@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+   	 xmlns:f="http://java.sun.com/jsf/core">
+   	 
+   	 
+   	 <h:body>
+    <h:form id="beans">
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="username"><strong>Nombre ONG</strong></label>
+                                <h:outputText value="NOMBRE"/>
+
+                              </div>
+                              <div class="form-group">
+                                <label for="username"><strong>DescripciÃ³n</strong></label>
+                                <h:outputText value="DESCRIPCIOON"/>
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <ul class="list-group">
+                              <li class="list-group-item">
+                              <p:commandButton actionListener="OngBean.listar()" update="tablilla"></p:commandButton>
+                             <p:dataTable id="tablilla" var="p" value="#{OngBean.lista}" rows="10"
+                paginator="true"
+                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                rowsPerPageTemplate="5,10,15,30,50,100">
+
+                <p:column headerText="Nombre del alumno">
+                    <h:outputText value="#{p.nombre}" height="50" width="50"/>
+                </p:column>
+                </p:dataTable>
+                              </li>
+                            </ul>
+                          </div>
+                        </h:form>
+    <ui:debug hotkey="x"/>
+</h:body>
+   	 
+   	 
+   	 
+   	 
+   	 
+ <!--   <h:head>
+ 	<title>Table - Brand</title>
+ 	<body>
+ 		<h:form>
+    <p:dataTable var="ONG" value="#{OngsGo.ongs}" rows="10"
+                 paginator="true"
+                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                 rowsPerPageTemplate="5,10,15">
+        <p:column headerText="Codigo ong">
+            <h:outputText value="#{ONG.Codigo_ong}" />
+        </p:column>
+        
+        <p:column headerText="Descripcion">
+            <h:outputText value="#{ONG.Descripcion}" />
+        </p:column>
+        
+        <f:facet name="paginatorTopLeft">
+            <p:commandButton type="button" icon="pi pi-refresh" />
+        </f:facet>
+ 
+        <f:facet name="paginatorBottomRight">
+            <p:commandButton type="button" icon="pi pi-cloud-upload" />
+        </f:facet>
+
+    </p:dataTable>
+</h:form>
+ 	
+ 	</body>
+ 
+ </h:head> -->
+ 
+ 
+ 
+ 
+
+      
+</html>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html">
+  <head>
+    <meta content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>
+      Profile - Brand
+    </title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+  </head>
+  <body id="page-top">
+    		<h3 class="text-dark mb-4">
+    		<table style="width: 30%;"  cellpadding="20">
+			<tbody>
+			<tr>
+			<td><a href="mainBueno.xhtml">Inicio</a></td>
+			<td><a href="login.xhtml">Salir</a></td>
+			</tr>
+			<tr>
+			<td>Perfil</td>
+			<td></td>
+			</tr>
+			</tbody>
+			</table>
+              
+            </h3>
+            
+            <div class="row mb-3">
+              <div class="col-lg-4">
+                <div class="card mb-3">
+                  <div class="card-body text-center shadow">
+                    <img class="rounded-circle mb-3 mt-4"
+                    src="assets/img/dogs/image2.jpeg" width="160" height="160"
+                    alt="" />
+                   
+                  </div>
+                </div>
+                <div class="card shadow mb-4"></div>
+              </div>
+              <div class="col-lg-8">
+                <div class="row mb-3 d-none">
+                  <div class="col">
+                    <div class="card text-white bg-primary shadow">
+                      <div class="card-body">
+                        <div class="row mb-2">
+                          <div class="col">
+                            <p class="m-0">
+                              Peformance
+                            </p>
+                            <p class="m-0">
+                              <strong>65.2%</strong>
+                            </p>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fas fa-rocket fa-2x"></i>
+                          </div>
+                        </div>
+                        <p class="text-white-50 small m-0">
+                          <i class="fas fa-arrow-up"></i>&nbsp;5% since
+                          last month
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card text-white bg-success shadow">
+                      <div class="card-body">
+                        <div class="row mb-2">
+                          <div class="col">
+                            <p class="m-0">
+                              Peformance
+                            </p>
+                            <p class="m-0">
+                              <strong>65.2%</strong>
+                            </p>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fas fa-rocket fa-2x"></i>
+                          </div>
+                        </div>
+                        <p class="text-white-50 small m-0">
+                          <i class="fas fa-arrow-up"></i>&nbsp;5% since
+                          last month
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="card shadow mb-3">
+                      <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">
+                          Informacion del Usuario
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <h:form id="perfil">
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="username"><strong>Nombre: </strong></label>
+								<h:outputText value="#{login.getcurrentNombre()}"/>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="email"><strong>Correo Electronico: </strong><br /></label>
+								<h:outputText value="#{login.getcurrentEmail()}"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="first_name"><strong>Primer Apellido: </strong><br /></label>
+								<h:outputText value="#{login.getcurrentApellido1()}"/>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="last_name"><strong>Segundo Apellido: </strong><br /></label>
+								<h:outputText value="#{login.getcurrentApellido2()}"/>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="address"><strong>Direccion: </strong></label>
+							<h:outputText value="#{login.getcurrentDireccion()}"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="city"><strong>DNI: </strong></label>
+							<h:outputText value="#{login.getcurrentDNI()}"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="city"><strong>Numero de Expediente: </strong></label>
+							<h:outputText value="#{login.getcurrentNum_expediente()}"/>
+                          </div>
+                          
+                        </h:form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <div class="container my-auto">
+          
+        </div>
+     
+      <a class="border rounded d-inline scroll-to-top" href="#page-top"><i
+      class="fas fa-angle-up"></i></a>
+   <script src="assets/js/jquery.min.js" type="text/javascript"
+    xml:space="preserve"></script> <script
+    src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"
+    xml:space="preserve"></script> <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"
+    type="text/javascript" xml:space="preserve"></script> <script
+    src="assets/js/script.min.js" type="text/javascript" xml:space="preserve"></script>
+  </body>
+</html>

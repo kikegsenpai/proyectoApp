@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+   	 xmlns:f="http://java.sun.com/jsf/core">
+   	 
+<head>
+    
+<meta charset="utf-8" />
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    
+<title>Register - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" /></head>
+
+<h:body class="bg-gradient-primary">
+    
+<div class="container">
+        
+<div class="card shadow-lg o-hidden border-0 my-5">
+            
+<div class="card-body p-0">
+                
+<div class="row">
+                    
+<div class="col-lg-5 d-none d-lg-flex">
+                        
+<div class="flex-grow-1 bg-register-image" style="background-image: url(&quot;assets/img/dogs/image2.jpeg&quot;);" />
+                    </div>
+                    
+<div class="col-lg-7">
+                        
+<div class="p-5" style="font-family: Nunito, sans-serif;">
+                            
+<div class="text-center">
+                                
+<h4 class="text-dark mb-4">Valoracion de Actividad</h4>
+                            </div>
+                            
+                            <h:form id="crearValoracionActividad">
+		                        <h3 style="margin-top:0">Descripcion: </h3>
+							    <!--<h:inputText rows="10" cols="50" style="height: 200px;width: 50%;" value="#{crearValoracionActividad.descripcion}"/>
+							    -->
+							    <p:inputTextarea rows="10" cols="50" value="#{crearValoracionActividad.descripcion}" >
+							    </p:inputTextarea>
+							    
+							    <h3 style="margin-top:0">Puntuacion</h3>
+							    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+							        <p:selectOneRadio id="console" value="#{crearValoracionActividad.puntuacion}" unselectable="true">
+							            <f:selectItem itemLabel="1" itemValue="1" />
+							            <f:selectItem itemLabel="2" itemValue="2" />
+							            <f:selectItem itemLabel="3" itemValue="3" />
+							            <f:selectItem itemLabel="4" itemValue="4" />
+							            <f:selectItem itemLabel="5" itemValue="5" />
+							        </p:selectOneRadio>
+							    </h:panelGrid>	
+							                             
+                            	<h:commandButton value="Confirmar" action="#{crearValoracionActividad.crearValoracion()}"></h:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script src="assets/js/jquery.min.js"></script>
+    
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    
+<script src="assets/js/script.min.js"></script>
+</h:body></html>
