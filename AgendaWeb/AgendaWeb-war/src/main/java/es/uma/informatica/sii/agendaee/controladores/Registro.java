@@ -13,7 +13,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriBuilder;
 
-import es.uma.informatica.sii.agendaee.entidades.Usuario;
+import es.uma.informatica.sii.agendaee.entidades.UsuarioAgenda;
 import es.uma.informatica.sii.agendaee.negocio.AgendaException;
 import es.uma.informatica.sii.agendaee.negocio.CuentaRepetidaException;
 import es.uma.informatica.sii.agendaee.negocio.Negocio;
@@ -33,7 +33,7 @@ public class Registro {
     @EJB
     private Negocio negocio;
 
-    private Usuario usuario;
+    private UsuarioAgenda usuario;
     private String repass;
 
     private String cuenta;
@@ -65,7 +65,7 @@ public class Registro {
     }
 
     public Registro() {
-        usuario = new Usuario();
+        usuario = new UsuarioAgenda();
     }
 
     public String getRepass() {
@@ -76,11 +76,11 @@ public class Registro {
         this.repass = repass;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioAgenda getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioAgenda usuario) {
         this.usuario = usuario;
     }
 

@@ -32,13 +32,13 @@ public class Contacto implements Serializable {
     @ManyToOne
     @XmlTransient
     @JsonbTransient
-    private Usuario usuario;
+    private UsuarioAgenda usuario;
 
-    public Usuario getUsuario() {
+    public UsuarioAgenda getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioAgenda usuario) {
         this.usuario = usuario;
     }
 

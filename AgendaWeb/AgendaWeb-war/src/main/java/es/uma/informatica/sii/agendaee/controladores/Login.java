@@ -5,7 +5,7 @@
  */
 package es.uma.informatica.sii.agendaee.controladores;
 
-import es.uma.informatica.sii.agendaee.entidades.Usuario;
+import es.uma.informatica.sii.agendaee.entidades.UsuarioAgenda;
 import es.uma.informatica.sii.agendaee.negocio.AgendaException;
 import es.uma.informatica.sii.agendaee.negocio.ContraseniaInvalidaException;
 import es.uma.informatica.sii.agendaee.negocio.CuentaInactivaException;
@@ -32,20 +32,20 @@ public class Login {
     @Inject
     private InfoSesion sesion;
 
-    private Usuario usuario;
+    private UsuarioAgenda usuario;
 
     /**
      * Creates a new instance of login
      */
     public Login() {
-        usuario = new Usuario();
+        usuario = new UsuarioAgenda();
     }
 
-    public Usuario getUsuario() {
+    public UsuarioAgenda getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioAgenda usuario) {
         this.usuario = usuario;
     }
 

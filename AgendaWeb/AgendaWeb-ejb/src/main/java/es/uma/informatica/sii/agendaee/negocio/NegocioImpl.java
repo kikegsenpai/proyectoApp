@@ -19,7 +19,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import es.uma.informatica.sii.agendaee.entidades.Contacto;
 import es.uma.informatica.sii.agendaee.entidades.ONG;
-import es.uma.informatica.sii.agendaee.entidades.Usuario;
+import es.uma.informatica.sii.agendaee.entidades.UsuarioAgenda;
 
 /**
  *
@@ -46,8 +46,8 @@ public class NegocioImpl implements Negocio {
 		
 	}
     @Override
-    public void registrarUsuario(Usuario u, UriBuilder uriBuilder) throws AgendaException {
-        Usuario user = em.find(Usuario.class, u.getCuenta());
+    public void registrarUsuario(UsuarioAgenda u, UriBuilder uriBuilder) throws AgendaException {
+        UsuarioAgenda user = em.find(UsuarioAgenda.class, u.getCuenta());
         if (user != null) {
             // El usuario ya existe
             throw new CuentaRepetidaException();
@@ -82,7 +82,7 @@ public class NegocioImpl implements Negocio {
 
     @Override
     public void validarCuenta(String cuenta, String validacion) throws AgendaException {
-        Usuario u = em.find(Usuario.class, cuenta);
+        UsuarioAgenda u = em.find(UsuarioAgenda.class, cuenta);
         if (u == null) {
             throw new CuentaInexistenteException();
         }
@@ -107,8 +107,8 @@ public class NegocioImpl implements Negocio {
 
     
     @Override
-    public void compruebaLogin(Usuario u)  throws AgendaException {
-    	Usuario user = em.find(Usuario.class, u.getCuenta());
+    public void compruebaLogin(UsuarioAgenda u)  throws AgendaException {
+    	UsuarioAgenda user = em.find(UsuarioAgenda.class, u.getCuenta());
     	
     	
     	if(user!=null) {
@@ -128,9 +128,9 @@ public class NegocioImpl implements Negocio {
 
     
     @Override
-    public Usuario refrescarUsuario(Usuario u)  throws AgendaException {
+    public UsuarioAgenda refrescarUsuario(UsuarioAgenda u)  throws AgendaException {
     	compruebaLogin(u);
-        Usuario user = em.find(Usuario.class, u.getCuenta());
+        UsuarioAgenda user = em.find(UsuarioAgenda.class, u.getCuenta());
         em.refresh(user);
         return user;
 
@@ -139,7 +139,7 @@ public class NegocioImpl implements Negocio {
     
     @Override
     public void modificar(Contacto c)  throws AgendaException {
-    	Usuario user=c.getUsuario();
+    	UsuarioAgenda user=c.getUsuario();
     	compruebaLogin(user);
     	em.merge(c);
     	
@@ -148,7 +148,7 @@ public class NegocioImpl implements Negocio {
     
     @Override
     public void insertar(Contacto c)  throws AgendaException {
-    	Usuario user=c.getUsuario();
+    	UsuarioAgenda user=c.getUsuario();
     	compruebaLogin(user);
     	em.persist(c);
     }
@@ -166,7 +166,7 @@ public class NegocioImpl implements Negocio {
     		throw new AgendaException();
     	else if(cont.getUsuario()==null)
     		throw new CuentaInexistenteException();
-    	else if(!cont.getUsuario().getContrasenia().equals(em.find(Usuario.class, cont.getUsuario().getCuenta()).getContrasenia()))
+    	else if(!cont.getUsuario().getContrasenia().equals(em.find(UsuarioAgenda.class, cont.getUsuario().getCuenta()).getContrasenia()))
     		throw new ContraseniaInvalidaException();
     	
     }

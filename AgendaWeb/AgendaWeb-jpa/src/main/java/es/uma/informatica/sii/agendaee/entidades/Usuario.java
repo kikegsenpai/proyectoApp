@@ -1,137 +1,123 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package es.uma.informatica.sii.agendaee.entidades;
 
 import java.io.Serializable;
+import java.lang.String;
 import java.util.List;
-import java.util.Objects;
 
-import javax.json.bind.annotation.JsonbTransient;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.persistence.*;
 
 /**
+ * Entity implementation class for Entity: Usuario
  *
- * @author francis
  */
 @Entity
+
 public class Usuario implements Serializable {
-    private static final long serialVersionUID = 1L;
-    
-    @Id
-    private String cuenta;
-    private String contrasenia;
-    private String cadenaValidacion;
-    private String nombre;
-    private String apellidos;
-    private String email;
- 
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	private String DNI;
+	@Column (nullable = false)
+	private String Password;
+	@Column (nullable = false)
+	private String Nombre;
+	@Column (nullable = false)
+	private String Apellido1;
 	
-    public String getCadenaValidacion() {
-        return cadenaValidacion;
-    }
+	@Column (nullable = false)
+	private String Apellido2;
+	
+	@Column (nullable = false)
+	private String Email;
+	private String Direccion;
+	@ManyToMany
+	@JoinTable ( name = "jnd_usuario_actividad" ,
+			joinColumns = @JoinColumn (name = "usuario_fk"),
+			inverseJoinColumns = @JoinColumn(name = "actividad_fk"))
+	private List<Actividades> estaEnActividad;
 
-    public void setCadenaValidacion(String cadenaValidacion) {
-        this.cadenaValidacion = cadenaValidacion;
-    }
-    
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    @OrderBy ("nombre ASC")
-    private List<Contacto> contactos;
+	public List<Actividades> getEstaEnActividad() {
+		return estaEnActividad;
+	}
+	public void setEstaEnActividad(List<Actividades> estaEnActividad) {
+		this.estaEnActividad = estaEnActividad;
+	}
+	public Usuario() {
+		super();
+	}   
+	public String getDNI() {
+		return this.DNI;
+	}
 
-    public List<Contacto> getContactos() {
-        return contactos;
-    }
+	public void setDNI(String DNI) {
+		this.DNI = DNI;
+	}   
+	public String getPassword() {
+		return this.Password;
+	}
 
-    public void setContactos(List<Contacto> contactos) {
-        this.contactos = contactos;
-    }
+	public void setPassword(String Password) {
+		this.Password = Password;
+	}   
+	public String getNombre() {
+		return this.Nombre;
+	}
 
+	
+	
+	public void setNombre(String Nombre) {
+		this.Nombre = Nombre;
+	}   
+	public String getApellido1() {
+		return this.Apellido1;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public void setApellido1(String Apellido1) {
+		this.Apellido1 = Apellido1;
+	}   
+	public String getApellido2() {
+		return this.Apellido2;
+	}
 
-    public String getApellidos() {
-        return apellidos;
-    }
+	public void setApellido2(String Apellido2) {
+		this.Apellido2 = Apellido2;
+	}   
+	public String getEmail() {
+		return this.Email;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setEmail(String Email) {
+		this.Email = Email;
+	}   
+	public String getDireccion() {
+		return this.Direccion;
+	}
 
-    public String getCuenta() {
-        return cuenta;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.cuenta);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.cuenta, other.cuenta)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-
-    
-
-    @Override
-    public String toString() {
-        return "es.uma.informatica.sii.agendaee.entidades.Usuario[ cuenta=" + cuenta + " ]";
-    }
-    
+	public void setDireccion(String Direccion) {
+		this.Direccion = Direccion;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((DNI == null) ? 0 : DNI.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (DNI == null) {
+			if (other.DNI != null)
+				return false;
+		} else if (!DNI.equals(other.DNI))
+			return false;
+		return true;
+	}
+   
 }

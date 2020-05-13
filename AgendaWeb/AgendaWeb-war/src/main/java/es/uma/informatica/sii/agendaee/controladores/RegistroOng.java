@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriBuilder;
 
 import es.uma.informatica.sii.agendaee.entidades.ONG;
-import es.uma.informatica.sii.agendaee.entidades.Usuario;
+import es.uma.informatica.sii.agendaee.entidades.UsuarioAgenda;
 import es.uma.informatica.sii.agendaee.negocio.AgendaException;
 import es.uma.informatica.sii.agendaee.negocio.CuentaRepetidaException;
 import es.uma.informatica.sii.agendaee.negocio.Negocio;

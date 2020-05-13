@@ -8,7 +8,7 @@ package es.uma.informatica.sii.agendaee.controladores;
 
 import es.uma.informatica.sii.agendaee.entidades.Contacto;
 import es.uma.informatica.sii.agendaee.entidades.ONG;
-import es.uma.informatica.sii.agendaee.entidades.Usuario;
+import es.uma.informatica.sii.agendaee.entidades.UsuarioAgenda;
 import es.uma.informatica.sii.agendaee.negocio.AgendaException;
 import es.uma.informatica.sii.agendaee.negocio.Negocio;
 import java.io.Serializable;
@@ -28,7 +28,7 @@ public class InfoSesion implements Serializable {
 
     @Inject
     private Negocio negocio;
-    private Usuario usuario;
+    private UsuarioAgenda usuario;
     
     /**
      * Creates a new instance of InfoSesion
@@ -36,11 +36,11 @@ public class InfoSesion implements Serializable {
     public InfoSesion() {
     }
 
-    public synchronized void setUsuario(Usuario usuario) {
+    public synchronized void setUsuario(UsuarioAgenda usuario) {
         this.usuario = usuario;
     }
 
-    public synchronized Usuario getUsuario() {
+    public synchronized UsuarioAgenda getUsuario() {
         return usuario;
     }
     
