@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uma.informatica.sii.agendaee.vista;
+package es.uma.informatica.sii.agendaee.controladores;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;

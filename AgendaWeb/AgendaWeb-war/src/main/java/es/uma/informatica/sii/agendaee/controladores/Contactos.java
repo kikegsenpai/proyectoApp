@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.uma.informatica.sii.agendaee.vista;
+package es.uma.informatica.sii.agendaee.controladores;
 
 import es.uma.informatica.sii.agendaee.entidades.Contacto;
-import es.uma.informatica.sii.agendaee.entidades.ONG;
 import es.uma.informatica.sii.agendaee.negocio.AgendaException;
 import es.uma.informatica.sii.agendaee.negocio.Negocio;
 import javax.enterprise.context.RequestScoped;
@@ -17,9 +16,9 @@ import javax.inject.Named;
  *
  * @author francis
  */
-@Named(value = "ongs")
+@Named(value = "contactos")
 @RequestScoped
-public class ONGs {
+public class Contactos {
 
     public static enum Modo {
         MODIFICAR, 
@@ -32,11 +31,11 @@ public class ONGs {
     @Inject
     private Negocio negocio;
 
-    private ONG ong;
+    private Contacto contacto;
     private Modo modo;
 
-    public ONGs() {
-        ong = new ONG();
+    public Contactos() {
+        contacto = new Contacto();
         modo = Modo.NOACCION;
     }
 
@@ -59,16 +58,16 @@ public class ONGs {
         return null;
     }
 
-    public ONG getONG() {
-        return ong;
+    public Contacto getContacto() {
+        return contacto;
     }
 
-    public void setONG(ONG ong) {
-        this.ong = ong;
+    public void setContacto(Contacto contacto) {
+        this.contacto = contacto;
     }
 
-    public String modificar(ONG c) {
-        ong = c;
+    public String modificar(Contacto c) {
+        contacto = c;
         setModo(Modo.MODIFICAR);
         return "edicionContacto.xhtml";
     }
@@ -96,17 +95,22 @@ public class ONGs {
     }
 
     public String ejecutarAccion() {
+        try {
             switch (modo) {
                 case MODIFICAR:
-                    
+                    contacto.setUsuario(sesion.getUsuario());
+                    negocio.modificar(contacto);
                     break;
                 case INSERTAR:
-                   
+                    contacto.setUsuario(sesion.getUsuario());
+                    negocio.insertar(contacto);
                     break;
             }
             sesion.refrescarUsuario();
-            return "mainBueno.xhtml";
-        
+            return "contactos.xhtml";
+        } catch (AgendaException e) {
+            return "login.xhtml";
+        }
     }
     
     public boolean isAutorizadoParaEdicion()

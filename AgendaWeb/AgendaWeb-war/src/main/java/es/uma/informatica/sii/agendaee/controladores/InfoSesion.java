@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package es.uma.informatica.sii.agendaee.vista;
+package es.uma.informatica.sii.agendaee.controladores;
 
 import es.uma.informatica.sii.agendaee.entidades.Contacto;
 import es.uma.informatica.sii.agendaee.entidades.ONG;
